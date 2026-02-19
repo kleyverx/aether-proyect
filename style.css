@@ -1,0 +1,369 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;700&family=Syne:wght@700;800&family=Inter:wght@300;400;500;600&display=swap");
+
+:root {
+  /* Color Palette - HSL for better control */
+  --primary-h: 300;
+  --primary-s: 100%;
+  --primary-l: 41%;
+  --primary: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
+  --primary-glow: hsla(
+    var(--primary-h),
+    var(--primary-s),
+    var(--primary-l),
+    0.5
+  );
+
+  --secondary-h: 357;
+  --secondary-s: 97%;
+  --secondary-l: 31%;
+  --secondary: hsl(var(--secondary-h), var(--secondary-s), var(--secondary-l));
+
+  --bg-h: 210;
+  --bg-s: 100%;
+  --bg-l: 4%;
+  --bg-dark: #000205; /* Deepest black for HUD */
+
+  --surface-h: 240;
+  --surface-s: 5%;
+  --surface-l: 10%;
+  --glass-bg: hsla(var(--surface-h), var(--surface-s), var(--surface-l), 0.7);
+  --glass-border: rgba(255, 255, 255, 0.1);
+
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+
+  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  scroll-behavior: smooth;
+}
+
+/* Base reset & typography */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  max-width: 100vw;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: "Space Grotesk", sans-serif; /* Tech feel */
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: visible;
+
+  /* HUD Grid Background */
+  background-image:
+    linear-gradient(rgba(209, 0, 209, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(209, 0, 209, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-attachment: fixed; /* Parallax-like fix */
+}
+
+/* Typography Utilities */
+.font-display {
+  font-family: "Syne", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.font-mono {
+  font-family: "JetBrains Mono", monospace;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Syne", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px; /* Thinner for tech look */
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary); /* High visibility thumb */
+  border-radius: 0; /* Boxy tech look */
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #fff;
+}
+
+/* HUD Overlay Styles */
+.scanline::before {
+  content: " ";
+  display: block;
+  position: fixed; /* Fixed to viewport */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(0, 0, 0, 0.3) 51%
+  );
+  background-size: 100% 4px;
+  z-index: 9999; /* Top level */
+  pointer-events: none;
+}
+
+.hud-corner {
+  position: fixed; /* Fixed to viewport */
+  width: 30px;
+  height: 30px;
+  border-color: rgba(209, 0, 209, 0.5);
+  border-style: solid;
+  pointer-events: none;
+  z-index: 9998;
+}
+.tl {
+  top: 20px;
+  left: 20px;
+  border-width: 2px 0 0 2px;
+}
+.tr {
+  top: 20px;
+  right: 20px;
+  border-width: 2px 2px 0 0;
+}
+.bl {
+  bottom: 20px;
+  left: 20px;
+  border-width: 0 0 2px 2px;
+}
+.br {
+  bottom: 20px;
+  right: 20px;
+  border-width: 0 2px 2px 0;
+}
+
+@media (max-width: 768px) {
+  .hud-corner {
+    width: 15px;
+    height: 15px;
+  }
+  .tl {
+    top: 10px;
+    left: 10px;
+  }
+  .tr {
+    top: 10px;
+    right: 10px;
+  }
+  .bl {
+    bottom: 10px;
+    left: 10px;
+  }
+  .br {
+    bottom: 10px;
+    right: 10px;
+  }
+}
+
+/* Premium Navigation (Refined for HUD) */
+.glass-nav {
+  background: rgba(0, 2, 5, 0.85) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--primary-glow);
+  height: 4rem; /* More compact */
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  position: relative;
+  font-family: "Space Grotesk", sans-serif; /* Tech font */
+  font-weight: 500;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  transition: var(--transition-smooth);
+}
+
+.nav-link:hover {
+  text-shadow: 0 0 8px var(--primary);
+  color: #fff;
+}
+
+.nav-link::after {
+  display: none; /* Removing the underline for a cleaner HUD look */
+}
+
+/* Glassmorphism Cards (Tech Version) */
+.glass-card {
+  background: rgba(0, 2, 5, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  border-radius: 4px; /* Boxier */
+  padding: 2.5rem;
+  transition: var(--transition-smooth);
+  position: relative;
+}
+
+/* Decorative corner for cards */
+.glass-card::after {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid var(--primary);
+  border-left: 2px solid var(--primary);
+  opacity: 0.5;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary);
+  box-shadow: 0 0 20px rgba(209, 0, 209, 0.1);
+}
+
+/* Buttons (HUD Style) */
+.glow-button {
+  background: transparent;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  padding: 0.75rem 2rem;
+  border-radius: 2px; /* Geometric */
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.glow-button:hover {
+  background: var(--primary);
+  color: #000;
+  box-shadow: 0 0 30px var(--primary-glow);
+  transform: none; /* Stable UI */
+}
+
+/* Gradients */
+.text-gradient {
+  background: linear-gradient(135deg, #fff 30%, var(--primary) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Showcase Frames & Sections */
+.section-padding {
+  padding: 8rem 0;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 6rem 0;
+  }
+}
+
+.showcase-container {
+  position: relative;
+  width: 100%;
+  padding: 2rem;
+  overflow: visible;
+}
+
+/* Animation Utilities */
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: floating 6s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+/* Hero galaxy enhancement - Subtle Tech Grid Version */
+.galaxy-hero {
+  position: relative;
+  background: var(--bg-dark);
+}
+
+/* Scanline Animation */
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/* Fix for mobile menu overlay clipping */
+#mobile-menu-overlay {
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  background: rgba(0, 0, 0, 0.95);
+}
+
+/* Typography Scale */
+h1 {
+  font-size: clamp(3rem, 10vw, 6rem);
+  font-weight: 800;
+  line-height: 0.95;
+}
+h2 {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+h3 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+}
+
+/* Force hide carousel scrollbars specifically */
+#productCarousel {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+#productCarousel::-webkit-scrollbar {
+  display: none !important;
+}

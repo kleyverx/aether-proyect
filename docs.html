@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="es" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AETHER | Documentación Técnica</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#d100d1",
+              secondary: "#9d0208",
+              "bg-dark": "#000a12",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="selection:bg-primary selection:text-white overflow-hidden bg-bg-dark h-[100vh] flex flex-col"
+  >
+    <!-- Navigation Container -->
+    <div id="global-header"></div>
+
+    <div class="flex flex-1 overflow-hidden pt-20">
+      <!-- Sidebar -->
+      <aside
+        class="hidden lg:block w-72 border-r border-white/5 bg-bg-dark/50 backdrop-blur-xl overflow-y-auto custom-scrollbar"
+      >
+        <div class="p-8 space-y-10">
+          <div class="space-y-4">
+            <h5
+              class="text-[10px] font-black uppercase tracking-[0.3em] text-primary/50"
+            >
+              Fundación
+            </h5>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="block text-sm text-white font-bold border-l-2 border-primary pl-4 py-1"
+                  >Introducción</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block text-sm text-text-muted hover:text-white pl-4 py-1 transition-colors"
+                  >Protocolos</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="space-y-4">
+            <h5
+              class="text-[10px] font-black uppercase tracking-[0.3em] text-primary/50"
+            >
+              Core API
+            </h5>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="block text-sm text-text-muted hover:text-white pl-4 py-1 transition-colors"
+                  >Neural Sync</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block text-sm text-text-muted hover:text-white pl-4 py-1 transition-colors"
+                  >Webhooks</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Content Area -->
+      <main class="flex-1 overflow-y-auto custom-scrollbar">
+        <div class="container mx-auto px-6 md:px-12 py-16 max-w-4xl">
+          <article class="prose prose-invert prose-lg max-w-none">
+            <h1 class="text-gradient">DOCUMENTACIÓN DEL DESARROLLADOR</h1>
+            <p class="text-xl text-text-muted font-light leading-relaxed mb-12">
+              Referencia técnica para la integración de aplicaciones con la
+              matriz neuronal AETHER.
+            </p>
+
+            <div
+              class="glass-card !p-8 border-l-4 border-primary my-12 bg-primary/5"
+            >
+              <div class="flex gap-6 items-start">
+                <span class="material-symbols-outlined text-primary text-4xl"
+                  >warning</span
+                >
+                <div>
+                  <h4 class="text-white text-lg font-bold mb-2">
+                    Alpha v0.9.8
+                  </h4>
+                  <p class="text-text-muted text-sm leading-relaxed m-0">
+                    El SDK requiere una llave biométrica de nivel 4 para el
+                    acceso a la red neuronal pública. Contacte con el Comando
+                    Central para autorizaciones.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <h2 class="text-white">Quick Start</h2>
+            <p class="text-text-muted">
+              Instala el cliente oficial mediante el gestor de paquetes:
+            </p>
+            <div
+              class="bg-black/40 rounded-2xl p-6 font-mono text-sm border border-white/5 my-8"
+            >
+              <span class="text-primary">npm</span> install
+              @aether-core/neural-link
+            </div>
+
+            <h2 class="text-white">Implementación</h2>
+            <p class="text-text-muted">
+              Inicializa el enlace con latencia cero:
+            </p>
+            <div
+              class="bg-black/40 rounded-2xl p-6 font-mono text-sm border border-white/5 my-8"
+            >
+              <pre
+                class="m-0"
+              ><code class="language-js"><span class="text-primary">const</span> client = <span class="text-secondary">new</span> AetherClient({
+  mode: <span class="text-white">'quantum'</span>,
+  latency: <span class="text-primary">0.01</span>
+});
+
+<span class="text-primary">await</span> client.link();</code></pre>
+            </div>
+          </article>
+        </div>
+      </main>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

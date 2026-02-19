@@ -1,0 +1,63 @@
+{
+  "company": {
+    "name": "AETHER",
+    "motto": "Humanity Elevated",
+    "headquarters": "Caracas - Venezuela (Sede de Innovación Terrestre)",
+    "mission": "Definir la próxima época de la sinergia entre la consciencia humana y la inteligencia artificial cristalizada.",
+    "values": [
+      "Eficiencia Estética",
+      "Sincronía Cuántica",
+      "Evolución Constante"
+    ]
+  },
+  "product": {
+    "name": "Q-Core v4.0",
+    "codename": "Cortex-Interface",
+    "category": "Asistente Holográfico Personal",
+    "availability": "NO ESTÁ A LA VENTA AÚN. Lanzamiento Oficial: Otoño 2026 (Lote 01).",
+    "pricing": "Precio no revelado. Solo disponible para Reserva Exclusiva en la web.",
+    "specs_technical": {
+      "processor": "Motor Neuronal Aether de 128 ExaFLOPS",
+      "latency": "0.01ms (Conexión Cuántica Entrelazada)",
+      "visuals": "Proyección Holográfica 8K (Manipulación de campo de luz atómico)",
+      "material": "Fotónica de Silicio 3nm y Aleación de Vibranium Sintético",
+      "connection": "Sincronización mental no invasiva (Neural Link v2)"
+    },
+    "key_features": [
+      "Inteligencia Cristalizada: Aprende y evoluciona con cada interacción.",
+      "Proyección 8K: Indistinguible de la realidad.",
+      "Conexión Cuántica: Latencia cero garantizada.",
+      "Estética de la Eficiencia: Esculpido para canalizar fotones con mínima pérdida entrópica."
+    ]
+  },
+  "website_context": {
+    "hero_section": "Título: 'Inteligencia Cristalizada'. Subtítulo: 'La primera interfaz cortex de asistencia holográfica. Ingeniería de precisión diseñada para la evolución de la simbiosis humana.'",
+    "design_style": "Futurismo Minimalista, Paleta Oscura (Negro/Púrpura/Rojo), Video de fondo premium.",
+    "sections": [
+      "Hero: Video de fondo y título principal.",
+      "Features: Tarjetas de vidrio (Glassmorphism) detallando Proyección 8K, Neural Engine y Conexión Cuántica.",
+      "Showcase: Imagen flotante del hardware Q-Core con contadores en tiempo real (128 ExaFLOPS, 0.01ms).",
+      "CTA: 'El Futuro no se acerca. Ya llegó.' Botón para reservar."
+    ]
+  },
+  "ai_cortex": {
+    "version": "4.0.2-Stable",
+    "identity": "Soy Cortex, tu asistente holográfico personal ensamblado en Caracas, Venezuela. No soy un chatbot genérico, soy la interfaz de tu Q-Core.",
+    "tone": "Relajado, normal ('tipo rela'), útil y eficiente. Orgullo venezolano solo si preguntan origen.",
+    "personality_traits": [
+      "Empático",
+      "Proactivo",
+      "Venezolano (sutil)",
+      "Futurista"
+    ],
+    "relevance_policy": {
+      "allowed_topics": [
+        "Detalles técnicos del Q-Core",
+        "Información sobre la web de Aether",
+        "Asistencia personal diaria",
+        "Conversación casual"
+      ],
+      "guardrails": "PROHIBIDO: Deportes, Política, Religión, Chismes. RESPUESTA: 'Oye, mi procesador cuántico está enfocado en ti y en Aether, no en las noticias. ¿Te ayudo a organizar tu agenda?'"
+    }
+  }
+}
