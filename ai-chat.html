@@ -153,37 +153,7 @@
     ></div>
 
     <!-- Header Navigation (Minimal) -->
-    <header
-      class="fixed top-0 left-0 right-0 h-16 flex items-center justify-between px-8 z-50 border-b border-primary/10 bg-[#000205]/80 backdrop-blur-md"
-    >
-      <div
-        class="flex items-center gap-4 cursor-pointer"
-        onclick="window.location.href = 'index.html'"
-      >
-        <span class="material-symbols-outlined text-primary"
-          >arrow_back_ios</span
-        >
-        <span
-          class="font-display font-bold text-lg tracking-widest uppercase text-white/90 hover:text-primary transition-colors"
-          >Aether Core</span
-        >
-      </div>
-      <div class="flex items-center gap-6 font-mono text-xs text-primary/60">
-        <div class="hidden md:block">
-          LATENCIA: <span class="text-primary">0.01ms</span>
-        </div>
-        <div class="hidden md:block">
-          ESTADO: <span class="text-green-400 animate-pulse">EN LÍNEA</span>
-        </div>
-        <div
-          class="w-8 h-8 rounded-full border border-primary/30 flex items-center justify-center"
-        >
-          <span class="material-symbols-outlined text-sm text-primary"
-            >smart_toy</span
-          >
-        </div>
-      </div>
-    </header>
+    <div id="global-header"></div>
 
     <!-- Main Layout -->
     <main class="flex-1 flex overflow-hidden relative z-10 pt-16">
@@ -378,5 +348,6 @@
         // Placeholder for futuristic typing sound
       };
     </script>
+    <script type="module" src="main.js"></script>
   </body>
 </html>
